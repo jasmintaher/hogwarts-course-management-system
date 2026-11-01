@@ -1,0 +1,47 @@
+# Hogwarts Course Management System
+
+## API Endpoints
+### Houses
+- `GET /houses` - Get all houses
+- `GET /houses/:id` - Get a single house by ID
+
+### Teachers
+- `GET /teachers` - Get all teachers
+- `GET /teachers/:id` - Get a single teacher by ID
+- `DELETE /teachers/:id` - Delete an existing teacher
+- `POST /teachers` - Create a new teacher
+- `PUT /teachers/:id` - Update an existing teacher
+
+### Students
+- `GET /students` - Get all students
+- `GET /students/:id` - Get a single student by ID
+- `DELETE /students/:id` - Delete an existing student
+- `POST /students` - Create a new student
+- `PUT /students/:id` - Update an existing student
+
+### Courses
+- `GET /courses` - Get all courses
+- `GET /courses/:id` - Get a single course by ID
+- `DELETE /courses/:id` - Delete an existing course
+- `POST /courses` - Create a new course
+- `PUT /courses/:id` - Update an existing course
+
+### Course + Teacher
+- `PUT /courses/:id/teacher` - Set teacher for an existing course
+
+### Course + Students
+- `POST /courses/:id/students` - Add a student to an existing course
+- `DELETE /courses/:id/students/:studentId` - Remove a student from a course
+
+
+
+## Test af API-endpoints
+API-endpoints kan testes ved hjælp af Insomnia.
+
+1. Start serveren med `npm run dev`.
+2. Åbn Insomnia, og opret en ny HTTP-request.
+3. Vælg HTTP-metoden (GET, POST, PUT eller DELETE).
+4. Indtast endpointets URL, f.eks. `http://localhost:3000/houses`.
+5. Ved POST- og PUT-requests skal du vælge JSON som body-type og indtaste de nødvendige data.
+6. Klik på **Send** for at sende requesten.
+7. Kontrollér statuskoden og JSON-responsen for at se, om endpointet fungerer korrekt.

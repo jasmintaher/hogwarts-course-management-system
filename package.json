@@ -1,0 +1,19 @@
+{
+  "name": "hogwarts",
+  "version": "1.0.0",
+  "description": "The backend for the Hogwarts Course Management System",
+  "license": "ISC",
+  "author": "Jasmin Taher (cph-jt259@stud.ek.dk)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}
