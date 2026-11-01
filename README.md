@@ -45,3 +45,21 @@ API-endpoints kan testes ved hjælp af Insomnia.
 5. Ved POST- og PUT-requests skal du vælge JSON som body-type og indtaste de nødvendige data.
 6. Klik på **Send** for at sende requesten.
 7. Kontrollér statuskoden og JSON-responsen for at se, om endpointet fungerer korrekt.
+
+
+## Import af Insomnia Collection
+Projektet indeholder en eksporteret Insomnia-collection med alle 20 API-endpoints.
+
+Collectionen findes i filen `hogwarts-insomnia.yaml` i projektets rodmappe.
+
+**Sådan importeres collectionen:**
+1. Åbn Insomnia.
+2. Vælg **Import** og derefter **File**.
+3. Vælg filen `hogwarts-insomnia.yaml`.
+4. Importér collectionen.
+5. Start serveren med `npm run dev`.
+6. Åbn den importerede collection, og test endpoints ved at klikke på **Send**.
+
+API'et kører på `http://localhost:3000`.
+
+**Bemærk:** POST-, PUT- og DELETE-requests kan ændre data i databasen. Nogle requests kræver derfor, at de angivne ID'er eksisterer, eller at der først oprettes testdata.
