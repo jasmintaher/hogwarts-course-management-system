@@ -3,7 +3,6 @@
 ## Installation og opsætning
 
 ### 1. Installer dependencies
-
 Åbn projektet i VS Code, og kør følgende kommando i terminalen:
 
 ```bash
@@ -11,14 +10,12 @@ npm install
 ```
 
 ### 2. Opret PostgreSQL-databasen
-
 1. Åbn pgAdmin 4.
 2. Opret en ny PostgreSQL-database med navnet `hogwarts`.
 3. Åbn Query Tool for databasen.
 4. Åbn SQL-filen `sql/hogwarts.sql`, og kør den for at oprette tabellerne og indsætte testdata.
 
 ### 3. Konfigurer miljøvariabler
-
 1. Opret en `.env`-fil i projektets rodmappe.
 2. Brug `.env.example` som skabelon.
 3. Indsæt dine egne PostgreSQL-oplysninger, herunder host, databasenavn, brugernavn og adgangskode.
@@ -26,7 +23,6 @@ npm install
 `.env` er ikke inkluderet i GitHub-repositoryet af sikkerhedsmæssige årsager.
 
 ### 4. Start serveren
-
 Kør følgende kommando i terminalen:
 
 ```bash
@@ -36,6 +32,8 @@ npm run dev
 Serveren starter på `http://localhost:3000`.
 
 API-endpoints kan derefter testes ved hjælp af Insomnia.
+
+
 
 ## API Endpoints
 ### Houses
@@ -82,6 +80,7 @@ API-endpoints kan testes ved hjælp af Insomnia.
 5. Ved POST- og PUT-requests skal du vælge JSON som body-type og indtaste de nødvendige data.
 6. Klik på **Send** for at sende requesten.
 7. Kontrollér statuskoden og JSON-responsen for at se, om endpointet fungerer korrekt.
+
 
 
 ## Import af Insomnia Collection
