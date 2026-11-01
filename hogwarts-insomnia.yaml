@@ -1,0 +1,460 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Hogwarts Course Management System
+meta:
+  id: wrk_65dcee7e832246f1ab43e52c02e2c2f0
+  created: 1756381397690
+  modified: 1793545136688
+  description: ""
+collection:
+  - url: http://localhost:3000/houses
+    name: GET /houses
+    meta:
+      id: req_bf14ad1f7c9c4bf3b1e11df733334c76
+      created: 1793545247116
+      modified: 1793545277451
+      isPrivate: false
+      description: ""
+      sortKey: -1793545247116
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/houses/1
+    name: GET /houses/:id
+    meta:
+      id: req_7abfc1bf83c54635a4a3d5dee21e5a09
+      created: 1793545350518
+      modified: 1793545395319
+      isPrivate: false
+      description: ""
+      sortKey: -1793545350518
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/teachers
+    name: GET /teachers
+    meta:
+      id: req_d6c6fc87f88c4a8aacc1bfff5672fd12
+      created: 1793545405747
+      modified: 1793545428273
+      isPrivate: false
+      description: ""
+      sortKey: -1793545405747
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/teachers/1
+    name: GET /teachers/:id
+    meta:
+      id: req_6f8c83ef4f0b4eecbd885a73b4dcfc57
+      created: 1793545439621
+      modified: 1793545513150
+      isPrivate: false
+      description: ""
+      sortKey: -1793545439621
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/teachers
+    name: POST /teachers
+    meta:
+      id: req_a240125b03c14b25ad2a7e56bb8e29f8
+      created: 1793545535077
+      modified: 1793545562723
+      isPrivate: false
+      description: ""
+      sortKey: -1793545535077
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Albus Dumbledore",
+          "house_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/teachers/1
+    name: PUT /teachers/:id
+    meta:
+      id: req_42ea23cb37ef4e8599180f100df73399
+      created: 1793545603286
+      modified: 1793545695344
+      isPrivate: false
+      description: ""
+      sortKey: -1793545603286
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Professor Minerva McGonagall",
+          "house_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/teachers/8
+    name: DELETE /teachers/:id
+    meta:
+      id: req_1c5bacc73b754293be680b9af0688765
+      created: 1793545700629
+      modified: 1793545842131
+      isPrivate: false
+      description: ""
+      sortKey: -1793545700629
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/students
+    name: GET /students
+    meta:
+      id: req_f0d3e359b17d4e36925c0094d4e0f74a
+      created: 1793545854790
+      modified: 1793545878145
+      isPrivate: false
+      description: ""
+      sortKey: -1793545854790
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/students/1
+    name: GET /students/:id
+    meta:
+      id: req_fb056ef6b9814d0c9ca685ce68191882
+      created: 1793545911873
+      modified: 1793545940792
+      isPrivate: false
+      description: ""
+      sortKey: -1793545911873
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/students
+    name: POST /students
+    meta:
+      id: req_623c4d0d36eb447d86eb0e985b62e7de
+      created: 1793545969818
+      modified: 1793545998113
+      isPrivate: false
+      description: ""
+      sortKey: -1793545969818
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Neville Longbottom",
+          "year": 5,
+          "house_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/students/1
+    name: PUT /students/:id
+    meta:
+      id: req_2fddd39d505e42bd98adeb46f3f3f74e
+      created: 1793546046451
+      modified: 1793546100884
+      isPrivate: false
+      description: ""
+      sortKey: -1793546046451
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Harry James Potter",
+          "year": 6,
+          "house_id": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/students/11
+    name: DELETE /students/:id
+    meta:
+      id: req_485db8bf2a6b46d7816edd7bb51308e0
+      created: 1793546108659
+      modified: 1793546175324
+      isPrivate: false
+      description: ""
+      sortKey: -1793546046551
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses
+    name: GET /courses
+    meta:
+      id: req_4c24c8c3053f40eca8316568ccb0f398
+      created: 1793546177706
+      modified: 1793546193118
+      isPrivate: false
+      description: ""
+      sortKey: -1793546177706
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/1
+    name: GET /courses/:id
+    meta:
+      id: req_a0204f217ece40bb8192698dd5e5ae4e
+      created: 1793546205540
+      modified: 1793546262248
+      isPrivate: false
+      description: ""
+      sortKey: -1793546205540
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses
+    name: POST /courses
+    meta:
+      id: req_8ff24a718cce4765bba82c89b28827e5
+      created: 1793546264493
+      modified: 1793546294946
+      isPrivate: false
+      description: ""
+      sortKey: -1793546264493
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Astronomy"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/1
+    name: PUT /courses/:id
+    meta:
+      id: req_576c803ddb8b41099b345debc57c73b5
+      created: 1793546324479
+      modified: 1793546371112
+      isPrivate: false
+      description: ""
+      sortKey: -1793546324479
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Advanced Potions"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/8
+    name: DELETE /courses/:id
+    meta:
+      id: req_7a97a37eb28d4f0180efd9612b8da542
+      created: 1793546383673
+      modified: 1793546461356
+      isPrivate: false
+      description: ""
+      sortKey: -1793546383673
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/1/teacher
+    name: PUT /courses/:id/teacher
+    meta:
+      id: req_0a5426f69e914f74b25b1fdb822333cc
+      created: 1793546475618
+      modified: 1793546514517
+      isPrivate: false
+      description: ""
+      sortKey: -1793546475618
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "teacher_id": 2
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/1/students
+    name: POST /courses/:id/students
+    meta:
+      id: req_8aec68a3fdae4441b59d198c29814c7a
+      created: 1793546527905
+      modified: 1793546557680
+      isPrivate: false
+      description: ""
+      sortKey: -1793546527905
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "student_id": 4
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/courses/1/students/4
+    name: DELETE /courses/:id/students/:studentId
+    meta:
+      id: req_a5958ed8446049faa35dd0247962a60e
+      created: 1793546598597
+      modified: 1793546613903
+      isPrivate: false
+      description: ""
+      sortKey: -1793546598597
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_4960e68dbcf85aec12063ae355fc31e684053586
+    created: 1756381397692
+    modified: 1756381397692
+environments:
+  name: Base Environment
+  meta:
+    id: env_4960e68dbcf85aec12063ae355fc31e684053586
+    created: 1756381397691
+    modified: 1756381397691
+    isPrivate: false
