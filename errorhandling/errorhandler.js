@@ -3,13 +3,23 @@ export default function (err, req, res, next) {
     console.log(err.message)
     console.log(err.statusCode)
 
-    let error = "Internal Server Error";
+    let error = "";
     if (err.statusCode == 404) {
         error = "Not Found";
     } else if (err.statusCode == 400) {
         error = "Bad Request";
+    } else if (err.statusCode == 401) {
+        error = "Unauthorized";
+    } else if (err.statusCode == 403) {
+        error = "Forbidden";
+    } else if (err.statusCode == 409) {
+        error = "Conflict";
+    } else if (err.statusCode == 418) {
+        error = "I'm a teapot";
     }
-    // TODO: Lav alle de andre error navne her
+    else if (err.statusCode == 500) {
+        error = "Internal Server Error";
+    }
 
     res.status(err.statusCode).json({
         message: err.message,
