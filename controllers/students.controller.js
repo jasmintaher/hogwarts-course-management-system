@@ -3,24 +3,24 @@ import * as studentsRepository from "../repositories/students.repository.js";
 // Get all students
 // GET /students
 export async function getAllStudents(req, res) {
-    try {
+    // try {
         const allStudents = await studentsRepository.getAllStudents();
     
         res.status(200).json(allStudents);
     
-    } catch (error) {
-        console.error(error);
+    // } catch (error) {
+    //     console.error(error);
     
-        res.status(500).json({
-            message: "Error fetching students"
-        });
-    }
+    //     res.status(500).json({
+    //         message: "Error fetching students"
+    //     });
+    // }
 }
 
 // Get a single student by ID
 // GET /students/:id
 export async function getStudentById(req, res) { 
-    try {
+    // try {
         const id = req.params.id;
         const student = await studentsRepository.getStudentById(id);
     
@@ -32,19 +32,19 @@ export async function getStudentById(req, res) {
             });
         }
     
-    } catch (error) {
-        console.error(error);
+    // } catch (error) {
+    //     console.error(error);
     
-        res.status(500).json({
-            message: "Error fetching student"
-        });
-    }
+    //     res.status(500).json({
+    //         message: "Error fetching student"
+    //     });
+    // }
 }
 
 // Delete an existing student by ID
 // DELETE /students/:id
 export async function deleteStudent(req, res) {    
-    try {
+    // try {
         const id = req.params.id;
         const deletedStudent = await studentsRepository.deleteStudent(id);
     
@@ -56,37 +56,37 @@ export async function deleteStudent(req, res) {
             });
         }
     
-    } catch (error) {
-        console.error(error);
+    // } catch (error) {
+    //     console.error(error);
     
-        res.status(500).json({
-            message: "Error deleting student"
-        });
-    }
+    //     res.status(500).json({
+    //         message: "Error deleting student"
+    //     });
+    // }
 }
 
 // Create a new student
 // POST /students
 export async function createStudent(req, res) {
-    try {
+    // try {
         const { name, year, house_id } = req.body;
         const newStudent = await studentsRepository.createStudent(name, year, house_id);
     
         res.status(201).json(newStudent);
     
-    } catch (error) {
-        console.error(error);
+    // } catch (error) {
+    //     console.error(error);
     
-        res.status(500).json({
-            message: "Error creating student"
-        });
-    }
+    //     res.status(500).json({
+    //         message: "Error creating student"
+    //     });
+    // }
 }
 
 // Update an existing student by ID
 // PUT /students/:id
 export async function updateStudent(req, res) {
-    try {
+    // try {
         const id = req.params.id;
         const { name, year, house_id } = req.body;
             
@@ -100,11 +100,11 @@ export async function updateStudent(req, res) {
             });
         }
     
-    } catch (error) {
-        console.error(error);
+    // } catch (error) {
+    //     console.error(error);
     
-        res.status(500).json({
-            message: "Error updating student"
-        });
-    }
+    //     res.status(500).json({
+    //         message: "Error updating student"
+    //     });
+    // }
 }

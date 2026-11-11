@@ -6,6 +6,9 @@ import teachersRoutes from "./routes/teachers.routes.js";
 import studentsRoutes from "./routes/students.routes.js";
 import coursesRoutes from "./routes/courses.routes.js";
 
+//ERROR HANDLING
+import errorHandler from "./errorhandling/errorhandler.js";
+
 //SERVER
 const app = express();
 app.use(express.json()); // parse JSON bodies, gør det muligt at modtage JSON
@@ -19,15 +22,13 @@ app.listen(port, () => {
 
 //-------------------HOUSES-------------------
 app.use("/houses", housesRoutes);
-
-
 //-------------------TEACHERS-------------------
 app.use("/teachers", teachersRoutes);
-
-
 //-------------------STUDENTS-------------------
 app.use("/students", studentsRoutes);
-
-
 //-------------------COURSES-------------------
 app.use("/courses", coursesRoutes);
+
+
+// GLOBAL ERROR HANDLING MIDDLEWARE
+app.use(errorHandler);
