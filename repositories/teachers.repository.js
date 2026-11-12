@@ -19,9 +19,7 @@ export async function getTeacherById(id) {
                 FROM teachers t
                 LEFT JOIN houses
                 ON t.house_id = houses.id
-                WHERE t.id = $1;`,
-        [id]
-    );
+                WHERE t.id = $1;`, [id]);
 
     if (one.rowCount === 0) {
         return null;
@@ -56,9 +54,14 @@ export async function createTeacher(name, house_id) {
 // PUT /teachers/:id
 export async function updateTeacher(id, name, house_id) {
     const result = await pool.query(
-        "UPDATE teachers SET name = $1, house_id = $2 WHERE id = $3 RETURNING *",
+        "UPDATE teachers SET name = $1, house_id = $2 WHERE id = $3 RETURNING id",
         [name, house_id, id]
     );
 
-    return result.rows[0] || null;
+    if (result.rowCount === 0) {
+        return null;
+    }
+
+    const updatedID = result.rows[0].id;
+    return getTeacherById(updatedID);
 }
