@@ -3,7 +3,10 @@ import pool from "../db.js";
 // Get all teachers
 // GET /teachers
 export async function getAllTeachers() {
-    const result = await pool.query("SELECT * FROM teachers");
+    const result = await pool.query(/*sql*/`SELECT t.id, t.name, houses.name AS house
+                                            FROM teachers t
+                                            LEFT JOIN houses
+                                            ON t.house_id = houses.id;`);
 
     return result.rows;
 }
@@ -12,7 +15,11 @@ export async function getAllTeachers() {
 // GET /teachers/:id
 export async function getTeacherById(id) {
     const one = await pool.query(
-        "SELECT * FROM teachers WHERE id = $1",
+        /*sql*/`SELECT t.id, t.name, houses.name AS house
+                FROM teachers t
+                LEFT JOIN houses
+                ON t.house_id = houses.id
+                WHERE t.id = $1;`,
         [id]
     );
 
