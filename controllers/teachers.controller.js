@@ -1,5 +1,6 @@
 import * as teachersRepository from "../repositories/teachers.repository.js";
 import HTTPError from "../errorhandling/HTTPError.js";
+import updateTeacherDto from "../dtos/updateteacher.dto.js";
 
 // Get all teachers
 // GET /teachers
@@ -81,26 +82,15 @@ export async function createTeacher(req, res) {
 // Update an existing teacher by ID
 // PUT /teachers/:id
 export async function updateTeacher(req, res) {
-    
-    // try {
         const id = req.params.id;
-        const { name, house_id } = req.body;
+        const input = req.body;
 
-        const updatedTeacher = await teachersRepository.updateTeacher(id, name, house_id);
+        const newTeacherData = updateTeacherDto.parse(input);
+
+        const oldTeacher = await teachersRepository.getTeacherById(input);
     
-        if (updatedTeacher) {
-            res.status(200).json(updatedTeacher);
-        } else {
-            res.status(404).json({
-                message: "Teacher not found"
-            });
-        }
-    
-    // } catch (error) {
-    //        console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error updating teacher"
-    //     });
-    // }
+        if (!oldTeacher) throw new HTTPError(400, "Teacher does not exist");
+
+        const newTeacher = await teachersRepository.update(id, newTeacherData);
+        res.status(201).json(newTeacher);
 }
