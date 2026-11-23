@@ -1,110 +1,60 @@
 import * as studentsRepository from "../repositories/students.repository.js";
+import HTTPError from "../errorhandling/HTTPError.js";
 
 // Get all students
 // GET /students
 export async function getAllStudents(req, res) {
-    // try {
-        const allStudents = await studentsRepository.getAllStudents();
+    const allStudents = await studentsRepository.getAllStudents();
     
-        res.status(200).json(allStudents);
-    
-    // } catch (error) {
-    //     console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error fetching students"
-    //     });
-    // }
+    res.status(200).json(allStudents);
 }
 
 // Get a single student by ID
 // GET /students/:id
 export async function getStudentById(req, res) { 
-    // try {
-        const id = req.params.id;
-        const student = await studentsRepository.getStudentById(id);
+    const id = req.params.id;
+    const student = await studentsRepository.getStudentById(id);
     
-        if (student) {
-            res.status(200).json(student);
-        } else {
-            res.status(404).json({
-                message: "Student not found"
-            });
-        }
-    
-    // } catch (error) {
-    //     console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error fetching student"
-    //     });
-    // }
+    if (!student) {
+        throw new HTTPError(404, "Student not found")
+    }
+
+    res.status(200).json(student);
 }
 
 // Delete an existing student by ID
 // DELETE /students/:id
-export async function deleteStudent(req, res) {    
-    // try {
-        const id = req.params.id;
-        const deletedStudent = await studentsRepository.deleteStudent(id);
+export async function deleteStudent(req, res) {
+    const id = req.params.id;
+    const deletedStudent = await studentsRepository.deleteStudent(id);
     
-        if (deletedStudent) {
-            res.sendStatus(204);
-        } else {
-            res.status(404).json({
-                message: "Student not found"
-            });
-        }
-    
-    // } catch (error) {
-    //     console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error deleting student"
-    //     });
-    // }
+    if (!deletedStudent) {
+        throw new HTTPError(404, "Student not found")
+    }
+
+    res.sendStatus(204);
 }
 
 // Create a new student
 // POST /students
 export async function createStudent(req, res) {
-    // try {
-        const { name, year, house_id } = req.body;
-        const newStudent = await studentsRepository.createStudent(name, year, house_id);
+    const { name, year, house_id } = req.body;
+    const newStudent = await studentsRepository.createStudent(name, year, house_id);
     
-        res.status(201).json(newStudent);
-    
-    // } catch (error) {
-    //     console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error creating student"
-    //     });
-    // }
+    res.status(201).json(newStudent);
 }
 
 // Update an existing student by ID
 // PUT /students/:id
 export async function updateStudent(req, res) {
-    // try {
-        const id = req.params.id;
-        const { name, year, house_id } = req.body;
+    const id = req.params.id;
+    const { name, year, house_id } = req.body;
             
-        const updatedStudent = await studentsRepository.updateStudent(id, name, year, house_id);
+    const updatedStudent = await studentsRepository.updateStudent(id, name, year, house_id);
     
-        if (updatedStudent) {
-            res.status(200).json(updatedStudent);
-        } else {
-            res.status(404).json({
-                message: "Student not found"
-            });
-        }
+    if (!updatedStudent) {
+        throw new HTTPError(404, "Student not found")
+    }
     
-    // } catch (error) {
-    //     console.error(error);
-    
-    //     res.status(500).json({
-    //         message: "Error updating student"
-    //     });
-    // }
+    res.status(200).json(updatedStudent);
 }
