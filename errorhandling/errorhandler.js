@@ -8,7 +8,7 @@ export default function (err, req, res, next) {
 
     if (statusCode == 404) {
         error = "Not Found";
-    } else if (satusCode == 400) {
+    } else if (statusCode == 400) {
         error = "Bad Request";
     } else if (statusCode == 401) {
         error = "Unauthorized";

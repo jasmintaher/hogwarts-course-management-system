@@ -87,10 +87,10 @@ export async function updateTeacher(req, res) {
 
         const newTeacherData = updateTeacherDto.parse(input);
 
-        const oldTeacher = await teachersRepository.getTeacherById(input);
+        const oldTeacher = await teachersRepository.getTeacherById(id);
     
-        if (!oldTeacher) throw new HTTPError(400, "Teacher does not exist");
+        if (!oldTeacher) {throw new HTTPError(400, "Teacher does not exist");}
 
-        const newTeacher = await teachersRepository.update(id, newTeacherData);
+        const newTeacher = await teachersRepository.updateTeacher(id, newTeacherData.name, newTeacherData.house_id);
         res.status(201).json(newTeacher);
 }
