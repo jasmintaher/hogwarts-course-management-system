@@ -3,7 +3,19 @@ import pool from "../db.js";
 // Get all courses
 // GET /courses
 export async function getAllCourses() {
-    const result = await pool.query("SELECT * FROM courses");
+    const result = await pool.query(
+        `SELECT
+            courses.id,
+            courses.name,
+            courses.type,
+            courses.level,
+            courses.school_year AS "schoolYear",
+            courses.teacher_id
+            teachers.name AS teacher_name
+         FROM courses
+         LEFT JOIN teachers
+         ON courses.teacher_id = teachers.id`
+    );
 
     return result.rows;
 }
@@ -15,6 +27,9 @@ export async function getCourseById(id) {
         `SELECT
             courses.id,
             courses.name,
+            courses.type,
+            courses.level,
+            school_year AS "schoolYear",
             courses.teacher_id,
             teachers.name AS teacher_name
          FROM courses
@@ -29,10 +44,20 @@ export async function getCourseById(id) {
     }
 
     const studentsResult = await pool.query(
-        `SELECT students.*
+        `SELECT 
+            students.id,
+            students.name,
+            students.school_year AS "schoolYear",
+            students.birthday,
+            students.house_id,
+            houses.name AS house_name,
+            houses.color,
+            houses.founder,
          FROM students
          JOIN course_students
          ON students.id = course_students.student_id
+         LEFT JOIN houses
+         ON students.house_id = houses.id
          WHERE course_students.course_id = $1
          ORDER BY students.id`,
         [id]
@@ -59,8 +84,8 @@ export async function deleteCourse(id) {
 // POST /courses
 export async function createCourse(name) {
     const result = await pool.query(
-        "INSERT INTO courses (name) VALUES ($1) RETURNING *",
-        [name]
+        "INSERT INTO courses (name, type, level, school_year) VALUES ($1, $2, $3, $4) RETURNING *",
+        [name, type, level, schoolYear]
     );
 
     return result.rows[0];
@@ -68,10 +93,10 @@ export async function createCourse(name) {
 
 // Update an existing course by ID
 // PUT /courses/:id
-export async function updateCourse(id, name) {
+export async function updateCourse(id, name, type, level, schoolYear) {
     const result = await pool.query(
-        "UPDATE courses SET name = $1 WHERE id = $2 RETURNING *",
-        [name, id]
+        "UPDATE courses SET name = $1, type = $2, level = $3, school_year = $4 WHERE id = $5 RETURNING *",
+        [name, type, level, schoolYear, id]
     );
 
     return result.rows[0] || null;

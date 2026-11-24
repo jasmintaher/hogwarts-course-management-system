@@ -1,3 +1,5 @@
+import { ZodError } from "zod";
+
 export default function (err, req, res, next) {
     console.log(err.message)
     console.log(err.statusCode)
@@ -5,6 +7,11 @@ export default function (err, req, res, next) {
     let statusCode = err.statusCode || 500;
     let error = err.error || "Internal Server Error";
     let message = err.message || "Something went wrong";
+
+    if (err instanceof ZodError) {
+    statusCode = 400;
+    message = err.issues.map((issue) => issue.message).join(", ");
+    }
 
     if (statusCode == 404) {
         error = "Not Found";
