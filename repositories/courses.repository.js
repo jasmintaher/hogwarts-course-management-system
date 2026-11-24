@@ -52,7 +52,7 @@ export async function getCourseById(id) {
             students.house_id,
             houses.name AS house_name,
             houses.color,
-            houses.founder,
+            houses.founder
          FROM students
          JOIN course_students
          ON students.id = course_students.student_id
@@ -82,7 +82,7 @@ export async function deleteCourse(id) {
 
 // Create a new course
 // POST /courses
-export async function createCourse(name) {
+export async function createCourse(name, type, level, schoolYear) {
     const result = await pool.query(
         "INSERT INTO courses (name, type, level, school_year) VALUES ($1, $2, $3, $4) RETURNING *",
         [name, type, level, schoolYear]

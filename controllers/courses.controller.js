@@ -63,8 +63,7 @@ export async function getCourseById(req, res) {
                 ? {
                     id: student.house_id,
                     name: student.house_name,
-                    color1: student.color1,
-                    color2: student.color2,
+                    color: student.color,
                     founder: student.founder,
                 }
                 : null,
