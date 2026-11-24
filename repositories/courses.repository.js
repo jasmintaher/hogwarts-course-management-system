@@ -10,7 +10,7 @@ export async function getAllCourses() {
             courses.type,
             courses.level,
             courses.school_year AS "schoolYear",
-            courses.teacher_id
+            courses.teacher_id,
             teachers.name AS teacher_name
          FROM courses
          LEFT JOIN teachers
